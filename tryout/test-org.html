@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap test</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        
+        <style type="text/css">
+            body { background: #EEEEEE }
+            .container { background: white; padding: 20px; border-radius: 5px; -moz-border-radius: 5px; }
+            
+            .pagination {
+                word-spacing: -1em; /* hide whitespace between elements if separated by whitespace in the source */
+            }
+            .pagination ul {
+                float: none;
+            }
+            .pagination.center {
+                text-align: center;                
+            }
+            .pagination li {
+                display: -moz-inline-box; /* FF2 or lower */
+                display: inline-block;
+                word-spacing: normal;
+                vertical-align: top;
+                /* IE6/7 inline-block hack */
+                *display: inline;
+                *zoom: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="pagination center">
+               <ul>
+                   <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+                   <li class="active"><a href="#">1</a></li>
+                   <li><a href="#">2</a></li>
+                   <li><a href="#">3</a></li>
+                   <li><a href="#">4</a></li>
+                   <li><a href="#">5</a></li>
+                   <li class="next"><a href="#">Next &rarr;</a></li>
+               </ul>
+           </div>
+        </div>
+    </body>
+</html>
