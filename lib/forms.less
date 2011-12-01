@@ -109,7 +109,6 @@ textarea {
 }
 
 
-
 // FOCUS STATE
 // -----------
 
@@ -261,10 +260,14 @@ textarea[readonly] {
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
+// We also support placeholder simulation through javascript
 :-moz-placeholder {
   color: @grayLight;
 }
 ::-webkit-input-placeholder {
+  color: @grayLight;
+}
+.placeholder {
   color: @grayLight;
 }
 
