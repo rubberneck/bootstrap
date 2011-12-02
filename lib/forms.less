@@ -109,11 +109,6 @@ textarea {
   height: auto;
 }
 
-textarea.editor,
-.uneditable-textarea.editor {
-    height: 265px;
-}
-
 // Placeholder text gets special styles; can't be bundled together though for some reason
 :-moz-placeholder {
   color: @grayLight;
@@ -342,14 +337,27 @@ textarea[readonly] {
   &[rows=90]  { height: (1 + 90) * @baseLineHeight; }
   &[rows=95]  { height: (1 + 95) * @baseLineHeight; }
   &[rows=100] { height: (1 + 100) * @baseLineHeight; }
-
-  &.editor {
-    overflow: auto;
-    padding: 5px 3px 5px 5px;
-    white-space: normal;
-    width: auto;
-  }
 }
+
+
+
+// SPECIAL INPUTS
+// --------------
+
+textarea.editor {
+  height: 265px;
+  width: auto;
+  padding: 5px;
+}
+
+.uneditable-textarea.editor {
+  height: 265px;
+  width: auto;
+  overflow: auto;
+  white-space: normal;
+  padding: 5px 3px 5px 5px;
+}
+
 
 
 // HELP TEXT
