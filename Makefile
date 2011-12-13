@@ -30,7 +30,7 @@ uglify:
 		uglifyjs -o js/min/bootstrap-popover.js js/bootstrap-popover.js;\
 		uglifyjs -o js/min/bootstrap-scrollspy.js js/bootstrap-scrollspy.js;\
 		uglifyjs -o js/min/bootstrap-tab.js js/bootstrap-tab.js;\
-		uglifyjs -o js/min/bootstrap-transition.js js/bootstrap-transition.js;\
+		uglifyjs -o js/min/bootstrap-transitions.js js/bootstrap-transitions.js;\
 		uglifyjs -o js/min/bootstrap-twipsy.js js/bootstrap-twipsy.js;\
 		cat js/min/bootstrap-transition.js js/min/bootstrap-alert.js js/min/bootstrap-modal.js js/min/bootstrap-dropdown.js js/min/bootstrap-scrollspy.js js/min/bootstrap-twipsy.js js/min/bootstrap-tab.js js/min/bootstrap-popover.js js/min/bootstrap-button.js js/min/bootstrap-collapse.js js/min/bootstrap-carousel.js > js/min/bootstrap.js; \
 	else \
