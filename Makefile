@@ -5,6 +5,7 @@ BOOTSTRAP_LESS = ./lib/bootstrap.less
 LESS_COMPESSOR ?= `which lessc`
 UGLIFY_JS ?= `which uglifyjs`
 WATCHR ?= `which watchr`
+JQUERY_FILES = jquery.ckeditor.js jquery.maskedinput.js jquery.placeholder.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
@@ -36,6 +37,14 @@ uglify:
 		echo "You can install it by running: npm install uglify-js -g"; \
 	fi
 
+jquery:
+	@@if test ! -z ${UGLIFY_JS}; then \
+		( for FILE in ${JQUERY_FILES}; do ${UGLIFY_JS} jquery/$$FILE; echo; done ) > jquery/jquery-plugins.min.js; \
+	else \
+		echo "You must have the UGLIFYJS minifier installed in order to build jquery-plugins.min.js."; \
+		echo "You can install it by running: npm install uglify-js -g"; \
+	fi
+
 watch:
 	@@if test ! -z ${WATCHR}; then \
 	  echo "Watching less files..."; \
@@ -45,4 +54,5 @@ watch:
 		echo "You can install it by running: gem install watchr"; \
 	fi
 
-.PHONY: build watch
+
+.PHONY: build jquery watch
