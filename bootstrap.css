@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Mon Dec 12 09:51:27 PST 2011
+ * Date: Tue Dec 13 20:55:56 CET 2011
  */
 html, body {
   margin: 0;
@@ -2529,6 +2529,207 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+/* icons.less
+ * Place icons on buttons
+ * ---------------------------------------------------------------------------- */
+@font-face {
+  font-family: IconicStrokeRegular;
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/iconic_stroke.eot');
+  src: local('@fontFamily'), url('fonts/iconic_stroke.eot?#iefix') format('embedded-opentype'), url('fonts/iconic_stroke.woff') format('woff'), url('fonts/iconic_stroke.ttf') format('truetype'), url('fonts/iconic_stroke.svg#IconicStrokeRegular') format('svg'), url("fonts/iconic_stroke.otf") format('opentype');
+}
+.icon:before {
+  font-family: IconicStrokeRegular;
+  content: "";
+  margin: 0 0.2em 0 0;
+  vertical-align: middle;
+}
+.icon.icon-only {
+  display: inline-block;
+  width: 1em;
+  overflow: hidden;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.icon.icon-only:before {
+  margin-right: 2em;
+}
+.icon.arrowup:before {
+  content: "0";
+}
+.icon.arrowdown:before {
+  content: "1";
+}
+.icon.arrowleft:before {
+  content: "2";
+}
+.icon.arrowright:before {
+  content: "3";
+}
+.icon.approve:before {
+  content: "4";
+}
+.icon.delete:before, .icon.remove:before {
+  content: "5";
+}
+.icon.log:before {
+  content: "6";
+}
+.icon.calendar:before {
+  content: "7";
+}
+.icon.chat:before {
+  content: "8";
+}
+.icon.clock:before {
+  content: "9";
+}
+.icon.settings:before {
+  content: "a";
+}
+.icon.comment:before {
+  content: "b";
+}
+.icon.fork:before {
+  content: "c";
+}
+.icon.like:before {
+  content: "d";
+}
+.icon.home:before {
+  content: "e";
+}
+.icon.key:before {
+  content: "f";
+}
+.icon.lock:before {
+  content: "g";
+}
+.icon.unlock:before {
+  content: "h";
+}
+.icon.loop:before {
+  content: "i";
+}
+.icon.search:before {
+  content: "j";
+}
+.icon.mail:before {
+  content: "k";
+}
+.icon.move:before {
+  content: "l";
+}
+.icon.edit:before {
+  content: "m";
+}
+.icon.pin:before {
+  content: "n";
+}
+.icon.add:before {
+  content: "o";
+}
+.icon.reload:before {
+  content: "p";
+}
+.icon.rss:before {
+  content: "q";
+}
+.icon.tagged:before {
+  content: "r";
+}
+.icon.trash:before {
+  content: "s";
+}
+.icon.favorite:before {
+  content: "t";
+}
+.icon.user:before {
+  content: "u";
+}
+.icon.minus:before {
+  content: "v";
+}
+.icon.upload:before {
+  content: "w";
+}
+.icon.transfer:before {
+  content: "x";
+}
+.icon.stop:before {
+  content: "y";
+}
+.icon.movie:before {
+  content: "z";
+}
+.icon.pause:before {
+  content: "A";
+}
+.icon.play:before {
+  content: "B";
+}
+.icon.new-window:before {
+  content: "C";
+}
+.icon.link:before {
+  content: "D";
+}
+.icon.iinfo:before {
+  content: "E";
+}
+.icon.image:before {
+  content: "F";
+}
+.icon.folder:before {
+  content: "G";
+}
+.icon.fullscreen:before {
+  content: "H";
+}
+.icon.fullexit:before {
+  content: "I";
+}
+.icon.share:before {
+  content: "J";
+}
+.icon.undo:before {
+  content: "K";
+}
+.icon.quote:before {
+  content: "L";
+}
+.icon.printer:before {
+  content: "M";
+}
+.btn.icon:before {
+  float: left;
+  margin: 0 0.5em 0 -0.25em;
+}
+.btn.icon.icon-right:before {
+  float: right;
+  margin: 0 -0.25em 0 0.5em;
+}
+.btn.icon.small {
+  padding: 6px 9px 6px 9px;
+}
+.btn.icon.small:before {
+  margin: 0 0.25em 0 -0.25em;
+}
+.btn.icon.small.icon-right:before {
+  margin: 0 -0.25em 0 0.25em;
+}
+.btn.icon.icon-only {
+  width: 2.9em;
+}
+.btn.icon.icon-only:before {
+  position: inline;
+  float: none;
+  margin: 0 2em 0 0.8em;
+}
+.btn.icon.icon-only.small:before {
+  margin: 0 2em 0 0.6em;
 }
 .hidden {
   display: none;
