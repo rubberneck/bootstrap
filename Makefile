@@ -32,6 +32,7 @@ uglify:
 		uglifyjs -o js/min/bootstrap-tabs.js js/bootstrap-tabs.js;\
 		uglifyjs -o js/min/bootstrap-transitions.js js/bootstrap-transitions.js;\
 		uglifyjs -o js/min/bootstrap-twipsy.js js/bootstrap-twipsy.js;\
+		cat js/min/bootstrap-transition.js js/min/bootstrap-alert.js js/min/bootstrap-modal.js js/min/bootstrap-dropdown.js js/min/bootstrap-scrollspy.js js/min/bootstrap-twipsy.js js/min/bootstrap-tab.js js/min/bootstrap-popover.js js/min/bootstrap-button.js js/min/bootstrap-collapse.js js/min/bootstrap-carousel.js > js/min/bootstrap.js; \
 	else \
 		echo "You must have the UGLIFYJS minifier installed in order to minify Bootstrap's js."; \
 		echo "You can install it by running: npm install uglify-js -g"; \
