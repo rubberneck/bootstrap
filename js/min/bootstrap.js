@@ -1,9 +1,5 @@
 /* ==========================================================
-<<<<<<< HEAD
- * bootstrap.js v2.0.0
-=======
  * bootstrap.js v2.0.0-jasny1
->>>>>>> 2.0-jquery
  * http://twitter.github.com/bootstrap/javascript.html
  * ==========================================================
  * Copyright 2011 Twitter, Inc.
@@ -31,9 +27,7 @@ $(function(){$.support.transition=function(){var a=document.body||document.docum
 !function(a){"use strict";var b=function(b,c){this.$element=a(b),this.settings=a.extend({},a.fn.button.defaults,c)};b.prototype={constructor:b,setState:function(a){var b="disabled",c=this.$element,d=c.data(),e=c.is("input")?"val":"html";a+="Text",d.resetText||c.data("resetText",c[e]()),c[e](d[a]||this.settings[a]),setTimeout(function(){a=="loadingText"?c.addClass(b).attr(b,b):c.removeClass(b).removeAttr(b)},0)},toggle:function(){var a=this.$element.parent('[data-toggle="buttons-radio"]');a&&a.find(".active").removeClass("active"),this.$element.toggleClass("active")}},a.fn.button=function(c){return this.each(function(){var d=a(this),e=d.data("button"),f=typeof c=="object"&&c;e||d.data("button",e=new b(this,f)),c=="toggle"?e.toggle():c&&e.setState(c)})},a.fn.button.defaults={loadingText:"loading..."},a.fn.button.Button=b,a(function(){a("body").delegate("[data-toggle^=button]","click.button.data-api",function(b){a(b.srcElement).button("toggle")})})}(window.jQuery||window.ender);
 (function(a){"use strict";var b=function(b,c){this.$element=a(b),this.settings=a.extend({},a.fn.collapse.defaults,c),this.settings.parent&&(this.$parent=a(this.settings.parent)),this.settings.toggle&&this.toggle()};b.prototype={constructor:b,dimension:function(){var a=this.$element.hasClass("width");return a?"width":"height"},show:function(){var b=this.dimension(),c=a.camelCase(["scroll",b].join("-")),d=this.$parent&&this.$parent.find(".in"),e;d&&d.length&&(e=d.data("collapse"),d.collapse("hide"),e||d.data("collapse",null)),this.$element[b](0),this.transition("addClass","show","shown"),this.$element[b](this.$element[0][c])},hide:function(){var a=this.dimension();this.reset(this.$element[a]()),this.transition("removeClass","hide","hidden"),this.$element[a](0)},reset:function(a){var b=this.dimension();this.$element.removeClass("collapse")[b](a||"")[0].offsetWidth,this.$element.addClass("collapse")},transition:function(b,c,d){var e=this,f=function(){c=="show"&&e.reset(),e.$element.trigger(d)};this.$element.trigger(c)[b]("in"),a.support.transition&&this.$element.hasClass("collapse")?this.$element.one(a.support.transition.end,f):f()},toggle:function(){this[this.$element.hasClass("in")?"hide":"show"]()}},a.fn.collapse=function(c){return this.each(function(){var d=a(this),e=d.data("collapse"),f=typeof c=="object"&&c;e||d.data("collapse",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.collapse.defaults={toggle:!0},a.fn.collapse.Collapse=b,a(function(){a("body").delegate("[data-toggle=collapse]","click.collapse.data-api",function(b){var c=a(this),d=c.attr("data-target")||c.attr("href"),e=a(d).data("collapse")?"toggle":c.data();b.preventDefault(),a(d).collapse(e)})})})(window.jQuery||window.ender);
 !function(a){"use strict";var b=function(b){a(b).delegate(dismiss,"click",this.close)};b.prototype={},a.fn.carousel=function(b){return this.each(function(){var c=a(this),d=c.data("alert");d||c.data("alert",d=new Alert(this)),typeof b=="string"&&d[b].call(c)})},a.fn.carousel.Carousel=b}(window.jQuery||window.ender);
-<<<<<<< HEAD
 $(function(){$("tr[data-href] > td").not(".nohref").click(function(){window.location=$(this).parent().attr("data-href")})});
-=======
 
 /*
 Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
@@ -55,4 +49,3 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 if(CKEDITOR!=undefined){var CKEDITOR_TOOLBAR=[{name:"basicstyles",items:["Format","-","Bold","Italic","Underline","Strike","-","RemoveFormat"]},{name:"list",items:["NumberedList","BulletedList","-","Table","HorizontalRule"]},{name:"paragraph",items:["JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock"]},{name:"insert",items:["Link","Unlink","-","Image","SpecialChar"]}];CKEDITOR.editorConfig=function(a){a.toolbar="Standard",a.toolbar_Standard=CKEDITOR_TOOLBAR},$(function(){$("textarea.editor").each(function(){$(this).ckeditor({toolbar:$(this).attr("data-editor-toolbar")?$(this).attr("data-editor-toolbar"):CKEDITOR_TOOLBAR})})})};
 $(function(){$("input[data-mask]").each(function(){$(this).mask($(this).attr("data-mask"))})});
 $(function(){NATIVE_SUPPORT||$("input[placeholder], textarea[placeholder]").placeholder()});
->>>>>>> 2.0-jquery
