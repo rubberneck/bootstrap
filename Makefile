@@ -25,8 +25,8 @@ build:
 
 uglify:
 	@@if test ! -z ${UGLIFY_JS}; then \
-		mkdir -p js/min; \
-		cp js/copyright ${JS_MIN_BOOTSTRAP}; \
+		mkdir -p ${JS_MIN}; \
+		sed -e 's/@VERSION/'"v${VERSION}"'/' -e 's/@DATE/'"`date`"'/' <${JS_COPYRIGHT} >${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_FILES}; do \
 			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
 			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
