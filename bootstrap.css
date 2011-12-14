@@ -868,6 +868,9 @@ textarea[readonly] {
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
 }
+.form-actions > .act {
+  line-height: 30px;
+}
 .uneditable-input {
   display: block;
   background-color: #ffffff;
@@ -1742,6 +1745,36 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 .btn-group .btn:hover, .btn-group .btn:focus, .btn-group .btn:active {
   z-index: 2;
+}
+.act.plain {
+  color: #000000;
+}
+.act.primary {
+  color: #0069D6;
+}
+.act.info {
+  color: #62CFFC;
+}
+.act.success {
+  color: #46A546;
+}
+.act.danger {
+  color: #C43C35;
+}
+a.act.plain:hover {
+  color: #3D3D3D;
+}
+a.act.primary:hover {
+  color: #00438A;
+}
+a.act.info:hover {
+  color: #53B0D6;
+}
+a.act.success:hover {
+  color: #307030;
+}
+a.act.danger:hover {
+  color: #7D3632;
 }
 .close {
   float: right;
