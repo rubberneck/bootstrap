@@ -5,7 +5,12 @@ BOOTSTRAP_LESS = ./lib/bootstrap.less
 LESS_COMPESSOR ?= `which lessc`
 UGLIFY_JS ?= `which uglifyjs`
 WATCHR ?= `which watchr`
-JQUERY_FILES = jquery.ckeditor.js jquery.maskedinput.js jquery.placeholder.js
+JS_DIR = ./js
+JS_MIN = ./js/min
+JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
+JS_COPYRIGHT = ./js/copyright
+JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
+JS_LOADER_FILES = loader-ckeditor.js loader-maskedinput.js loader-placeholder.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
@@ -21,28 +26,23 @@ build:
 
 uglify:
 	@@if test ! -z ${UGLIFY_JS}; then \
-		mkdir -p js/min; \
-		uglifyjs -o js/min/bootstrap-alert.js js/bootstrap-alert.js;\
-		uglifyjs -o js/min/bootstrap-button.js js/bootstrap-button.js;\
-		uglifyjs -o js/min/bootstrap-carousel.js js/bootstrap-carousel.js;\
-		uglifyjs -o js/min/bootstrap-collapse.js js/bootstrap-collapse.js;\
-		uglifyjs -o js/min/bootstrap-dropdown.js js/bootstrap-dropdown.js;\
-		uglifyjs -o js/min/bootstrap-modal.js js/bootstrap-modal.js;\
-		uglifyjs -o js/min/bootstrap-popover.js js/bootstrap-popover.js;\
-		uglifyjs -o js/min/bootstrap-scrollspy.js js/bootstrap-scrollspy.js;\
-		uglifyjs -o js/min/bootstrap-tab.js js/bootstrap-tab.js;\
-		uglifyjs -o js/min/bootstrap-transition.js js/bootstrap-transition.js;\
-		uglifyjs -o js/min/bootstrap-twipsy.js js/bootstrap-twipsy.js;\
+		mkdir -p ${JS_MIN}; \
+		cp ${JS_COPYRIGHT} ${JS_MIN_BOOTSTRAP}; \
+		for FILE in ${JS_FILES}; do \
+			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
+			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
+		done; \
+		echo >> ${JS_MIN_BOOTSTRAP}; \
+		for FILE in ${JS_DIR}/assets/*; do \
+			( uglifyjs $$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
+		done; \
+		echo >> ${JS_MIN_BOOTSTRAP}; \
+		for FILE in ${JS_LOADER_FILES}; do \
+			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
+			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
+		done; \
 	else \
 		echo "You must have the UGLIFYJS minifier installed in order to minify Bootstrap's js."; \
-		echo "You can install it by running: npm install uglify-js -g"; \
-	fi
-
-jquery:
-	@@if test ! -z ${UGLIFY_JS}; then \
-		( for FILE in ${JQUERY_FILES}; do ${UGLIFY_JS} jquery/$$FILE; echo; done ) > jquery/jquery-plugins.min.js; \
-	else \
-		echo "You must have the UGLIFYJS minifier installed in order to build jquery-plugins.min.js."; \
 		echo "You can install it by running: npm install uglify-js -g"; \
 	fi
 
