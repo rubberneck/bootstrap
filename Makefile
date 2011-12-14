@@ -33,7 +33,7 @@ uglify:
 			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
-		for FILE in ${JS_DIR}/assets/*; do \
+		for FILE in ${JS_DIR}/assets/*.js; do \
 			( uglifyjs $$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
