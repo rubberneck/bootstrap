@@ -1,4 +1,4 @@
-VERSION=2.0.0
+VERSION=2.0.0-jasny1
 BOOTSTRAP = ./bootstrap.css
 BOOTSTRAP_MIN = ./bootstrap.min.css
 BOOTSTRAP_LESS = ./lib/bootstrap.less
