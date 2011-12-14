@@ -2275,7 +2275,9 @@ a.act.danger:hover {
   margin: 18px 0;
 }
 .pagination ul {
-  float: left;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
   margin: 0;
   border: 1px solid #ddd;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -2310,6 +2312,9 @@ a.act.danger:hover {
 }
 .pagination .next a {
   border: 0;
+}
+pagination.center {
+  text-align: center;
 }
 .modal-backdrop {
   position: fixed;
