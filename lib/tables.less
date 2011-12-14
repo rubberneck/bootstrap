@@ -91,6 +91,16 @@ tbody tr:last-child td {
 }
 
 
+// ROWS ACTING AS LINK
+// -------------------
+
+tr[data-href] > td {
+  cursor: pointer;
+  &.nohref {
+    cursor: normal;
+  }
+}
+
 
 /*
 // ----------------
