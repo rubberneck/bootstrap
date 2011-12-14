@@ -660,7 +660,21 @@ a.act {
   }
 }
 
+.flash-message {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  .alert-message {
+    width: 500px;
+    margin: 0 auto;
+    border-top-width: 0;
+    .border-radius(0 0 4px 4px);
+  }
+}
 
+.navbar ~ .flash-message {
+  top: 40px;
+}
 
 
 // WELLS
