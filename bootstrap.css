@@ -2398,6 +2398,9 @@ a.act.danger:hover {
   float: right;
   margin-left: 5px;
 }
+.modal > form {
+  margin-bottom: 0;
+}
 .twipsy {
   position: absolute;
   z-index: 1000;
