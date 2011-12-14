@@ -525,7 +525,7 @@ pre code {
   padding: 0;
   background-color: transparent;
 }
-form {
+form, .uneditable-form {
   margin-bottom: 18px;
 }
 legend {
@@ -554,7 +554,8 @@ label {
 input,
 textarea,
 select,
-.uneditable-input {
+.uneditable-input,
+.uneditable-textarea {
   display: inline-block;
   width: 210px;
   height: 18px;
@@ -612,6 +613,12 @@ input[type=image] {
 textarea {
   height: auto;
 }
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
 input, textarea {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -656,7 +663,8 @@ input[type=file]:focus, input[type=checkbox]:focus, select:focus {
 input.span1,
 textarea.span1,
 select.span1,
-.uneditable-input.span1 {
+.uneditable-input.span1,
+.uneditable-textarea.span1 {
   display: inline-block;
   float: none;
   width: 50px;
@@ -665,7 +673,8 @@ select.span1,
 input.span2,
 textarea.span2,
 select.span2,
-.uneditable-input.span2 {
+.uneditable-input.span2,
+.uneditable-textarea.span2 {
   display: inline-block;
   float: none;
   width: 130px;
@@ -674,7 +683,8 @@ select.span2,
 input.span3,
 textarea.span3,
 select.span3,
-.uneditable-input.span3 {
+.uneditable-input.span3,
+.uneditable-textarea.span3 {
   display: inline-block;
   float: none;
   width: 210px;
@@ -683,7 +693,8 @@ select.span3,
 input.span4,
 textarea.span4,
 select.span4,
-.uneditable-input.span4 {
+.uneditable-input.span4,
+.uneditable-textarea.span4 {
   display: inline-block;
   float: none;
   width: 290px;
@@ -692,7 +703,8 @@ select.span4,
 input.span5,
 textarea.span5,
 select.span5,
-.uneditable-input.span5 {
+.uneditable-input.span5,
+.uneditable-textarea.span5 {
   display: inline-block;
   float: none;
   width: 370px;
@@ -701,7 +713,8 @@ select.span5,
 input.span6,
 textarea.span6,
 select.span6,
-.uneditable-input.span6 {
+.uneditable-input.span6,
+.uneditable-textarea.span6 {
   display: inline-block;
   float: none;
   width: 450px;
@@ -710,7 +723,8 @@ select.span6,
 input.span7,
 textarea.span7,
 select.span7,
-.uneditable-input.span7 {
+.uneditable-input.span7,
+.uneditable-textarea.span7 {
   display: inline-block;
   float: none;
   width: 530px;
@@ -719,7 +733,8 @@ select.span7,
 input.span8,
 textarea.span8,
 select.span8,
-.uneditable-input.span8 {
+.uneditable-input.span8,
+.uneditable-textarea.span8 {
   display: inline-block;
   float: none;
   width: 610px;
@@ -728,7 +743,8 @@ select.span8,
 input.span9,
 textarea.span9,
 select.span9,
-.uneditable-input.span9 {
+.uneditable-input.span9,
+.uneditable-textarea.span9 {
   display: inline-block;
   float: none;
   width: 690px;
@@ -737,7 +753,8 @@ select.span9,
 input.span10,
 textarea.span10,
 select.span10,
-.uneditable-input.span10 {
+.uneditable-input.span10,
+.uneditable-textarea.span10 {
   display: inline-block;
   float: none;
   width: 770px;
@@ -746,7 +763,8 @@ select.span10,
 input.span11,
 textarea.span11,
 select.span11,
-.uneditable-input.span11 {
+.uneditable-input.span11,
+.uneditable-textarea.span11 {
   display: inline-block;
   float: none;
   width: 850px;
@@ -755,7 +773,8 @@ select.span11,
 input.span12,
 textarea.span12,
 select.span12,
-.uneditable-input.span12 {
+.uneditable-input.span12,
+.uneditable-textarea.span12 {
   display: inline-block;
   float: none;
   width: 930px;
@@ -764,7 +783,8 @@ select.span12,
 input.span13,
 textarea.span13,
 select.span13,
-.uneditable-input.span13 {
+.uneditable-input.span13,
+.uneditable-textarea.span13 {
   display: inline-block;
   float: none;
   width: 1010px;
@@ -773,7 +793,8 @@ select.span13,
 input.span14,
 textarea.span14,
 select.span14,
-.uneditable-input.span14 {
+.uneditable-input.span14,
+.uneditable-textarea.span14 {
   display: inline-block;
   float: none;
   width: 1090px;
@@ -782,7 +803,8 @@ select.span14,
 input.span15,
 textarea.span15,
 select.span15,
-.uneditable-input.span15 {
+.uneditable-input.span15,
+.uneditable-textarea.span15 {
   display: inline-block;
   float: none;
   width: 1170px;
@@ -791,7 +813,8 @@ select.span15,
 input.span16,
 textarea.span16,
 select.span16,
-.uneditable-input.span16 {
+.uneditable-input.span16,
+.uneditable-textarea.span16 {
   display: inline-block;
   float: none;
   width: 1250px;
@@ -879,12 +902,161 @@ textarea[readonly] {
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
   cursor: not-allowed;
+  padding: 4px 3px 4px 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-:-moz-placeholder {
-  color: #bfbfbf;
+.uneditable-input[disabled], .uneditable-textarea[disabled] {
+  background-color: #f5f5f5;
+  border-color: #ddd;
 }
-::-webkit-input-placeholder {
-  color: #bfbfbf;
+.uneditable-textarea {
+  height: 54px;
+  white-space: pre-wrap;
+}
+.uneditable-textarea[rows=1] {
+  height: 36px;
+}
+.uneditable-textarea[rows=2] {
+  height: 54px;
+}
+.uneditable-textarea[rows=3] {
+  height: 72px;
+}
+.uneditable-textarea[rows=4] {
+  height: 90px;
+}
+.uneditable-textarea[rows=5] {
+  height: 108px;
+}
+.uneditable-textarea[rows=6] {
+  height: 126px;
+}
+.uneditable-textarea[rows=7] {
+  height: 144px;
+}
+.uneditable-textarea[rows=8] {
+  height: 162px;
+}
+.uneditable-textarea[rows=9] {
+  height: 180px;
+}
+.uneditable-textarea[rows=10] {
+  height: 198px;
+}
+.uneditable-textarea[rows=11] {
+  height: 216px;
+}
+.uneditable-textarea[rows=12] {
+  height: 234px;
+}
+.uneditable-textarea[rows=13] {
+  height: 252px;
+}
+.uneditable-textarea[rows=14] {
+  height: 270px;
+}
+.uneditable-textarea[rows=15] {
+  height: 288px;
+}
+.uneditable-textarea[rows=16] {
+  height: 306px;
+}
+.uneditable-textarea[rows=17] {
+  height: 324px;
+}
+.uneditable-textarea[rows=18] {
+  height: 342px;
+}
+.uneditable-textarea[rows=19] {
+  height: 360px;
+}
+.uneditable-textarea[rows=20] {
+  height: 378px;
+}
+.uneditable-textarea[rows=21] {
+  height: 396px;
+}
+.uneditable-textarea[rows=22] {
+  height: 414px;
+}
+.uneditable-textarea[rows=23] {
+  height: 432px;
+}
+.uneditable-textarea[rows=24] {
+  height: 450px;
+}
+.uneditable-textarea[rows=25] {
+  height: 468px;
+}
+.uneditable-textarea[rows=26] {
+  height: 486px;
+}
+.uneditable-textarea[rows=27] {
+  height: 504px;
+}
+.uneditable-textarea[rows=28] {
+  height: 522px;
+}
+.uneditable-textarea[rows=29] {
+  height: 540px;
+}
+.uneditable-textarea[rows=30] {
+  height: 558px;
+}
+.uneditable-textarea[rows=35] {
+  height: 648px;
+}
+.uneditable-textarea[rows=40] {
+  height: 738px;
+}
+.uneditable-textarea[rows=45] {
+  height: 828px;
+}
+.uneditable-textarea[rows=50] {
+  height: 918px;
+}
+.uneditable-textarea[rows=55] {
+  height: 1008px;
+}
+.uneditable-textarea[rows=60] {
+  height: 1098px;
+}
+.uneditable-textarea[rows=65] {
+  height: 1188px;
+}
+.uneditable-textarea[rows=70] {
+  height: 1278px;
+}
+.uneditable-textarea[rows=75] {
+  height: 1368px;
+}
+.uneditable-textarea[rows=80] {
+  height: 1458px;
+}
+.uneditable-textarea[rows=85] {
+  height: 1548px;
+}
+.uneditable-textarea[rows=90] {
+  height: 1638px;
+}
+.uneditable-textarea[rows=95] {
+  height: 1728px;
+}
+.uneditable-textarea[rows=100] {
+  height: 1818px;
+}
+textarea.editor {
+  height: 265px;
+  padding: 5px;
+  visibility: hidden;
+}
+.uneditable-textarea.editor {
+  height: 265px;
+  width: auto;
+  overflow: auto;
+  white-space: normal;
+  padding: 5px 3px 5px 5px;
 }
 .help-text {
   margin-top: 5px;
@@ -993,6 +1165,19 @@ textarea[readonly] {
 }
 .horizontal-form .form-actions {
   padding-left: 150px;
+}
+.uneditable-form input[disabled],
+.uneditable-form select[disabled],
+.uneditable-form textarea[disabled],
+.uneditable-form input[readonly],
+.uneditable-form select[readonly],
+.uneditable-form textarea[readonly],
+.uneditable-form .uneditable-input,
+.uneditable-form .uneditable-textarea {
+  cursor: text;
+}
+.uneditable-form .form-actions {
+  background-color: transparent;
 }
 table {
   width: 100%;
