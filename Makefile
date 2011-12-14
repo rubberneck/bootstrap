@@ -1,4 +1,4 @@
-VERSION=2.0.0
+VERSION=2.0.0-jasny1
 BOOTSTRAP = ./bootstrap.css
 BOOTSTRAP_MIN = ./bootstrap.min.css
 BOOTSTRAP_LESS = ./lib/bootstrap.less
@@ -27,7 +27,7 @@ build:
 uglify:
 	@@if test ! -z ${UGLIFY_JS}; then \
 		mkdir -p ${JS_MIN}; \
-		cp ${JS_COPYRIGHT} ${JS_MIN_BOOTSTRAP}; \
+		sed -e 's/@VERSION/'"v${VERSION}"'/' -e 's/@DATE/'"`date`"'/' <${JS_COPYRIGHT} >${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_FILES}; do \
 			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
 			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
