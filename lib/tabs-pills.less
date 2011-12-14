@@ -33,6 +33,34 @@
         border-color: #eee #eee #ddd;
       }
     }
+    &.success {
+      > a {
+        color: @green;
+        &:hover {
+          color: #fff;
+          background-color: @green;
+        }
+      }
+      &.active > a,
+      &.active > a:hover {
+        color: darken(@green, 20%);
+        background-color: @white;
+      }
+    }
+    &.danger {
+      > a {
+        color: @red;
+        &:hover {
+          color: #fff;
+          background-color: @red;
+        }
+      }
+      &.active > a,
+      &.active > a:hover {
+        color: darken(@red, 10%);
+        background-color: @white;
+      }
+    }
   }
   // Active state, and it's :hover to override normal :hover
   .active > a,
