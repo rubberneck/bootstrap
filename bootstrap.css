@@ -1,12 +1,12 @@
 /*!
- * Bootstrap v2.0.0
+ * Bootstrap v2.0.0-jasny1
  *
  * Copyright 2011 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Wed Dec 14 01:36:22 CET 2011
+ * Date: Wed Dec 14 02:23:03 CET 2011
  */
 html, body {
   margin: 0;
@@ -894,7 +894,7 @@ textarea[readonly] {
 .form-actions > .act {
   line-height: 30px;
 }
-.uneditable-input {
+.uneditable-input, .uneditable-textarea {
   display: block;
   background-color: #ffffff;
   border-color: #eee;
@@ -906,9 +906,8 @@ textarea[readonly] {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.uneditable-input[disabled], .uneditable-textarea[disabled] {
-  background-color: #f5f5f5;
-  border-color: #ddd;
+:-moz-placeholder {
+  color: #bfbfbf;
 }
 .uneditable-textarea {
   height: 54px;
@@ -1057,6 +1056,9 @@ textarea.editor {
   overflow: auto;
   white-space: normal;
   padding: 5px 3px 5px 5px;
+}
+.placeholder {
+  color: #bfbfbf;
 }
 .help-text {
   margin-top: 5px;
@@ -2072,6 +2074,22 @@ a.act.danger:hover {
 .alert-message.block-message.info {
   background-color: #ddf4fb;
   border-color: #c6edf9;
+}
+.flash-message {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.flash-message .alert-message {
+  width: 500px;
+  margin: 0 auto;
+  border-top-width: 0;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.navbar ~ .flash-message {
+  top: 40px;
 }
 .well {
   min-height: 20px;
