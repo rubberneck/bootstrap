@@ -10,6 +10,7 @@ JS_MIN = ./js/min
 JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
 JS_COPYRIGHT = ./js/copyright
 JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
+JQUERY_FILES = jquery.ckeditor.js jquery.maskedinput.js jquery.placeholder.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
@@ -36,6 +37,14 @@ uglify:
 		echo "You can install it by running: npm install uglify-js -g"; \
 	fi
 
+jquery:
+	@@if test ! -z ${UGLIFY_JS}; then \
+		( for FILE in ${JQUERY_FILES}; do ${UGLIFY_JS} jquery/$$FILE; echo; done ) > jquery/jquery-plugins.min.js; \
+	else \
+		echo "You must have the UGLIFYJS minifier installed in order to build jquery-plugins.min.js."; \
+		echo "You can install it by running: npm install uglify-js -g"; \
+	fi
+
 watch:
 	@@if test ! -z ${WATCHR}; then \
 	  echo "Watching less files..."; \
@@ -45,4 +54,5 @@ watch:
 		echo "You can install it by running: gem install watchr"; \
 	fi
 
-.PHONY: build watch
+.PHONY: build jquery watch
+
