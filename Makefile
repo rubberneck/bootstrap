@@ -27,6 +27,7 @@ build:
 uglify:
 	@@if test ! -z ${UGLIFY_JS}; then \
 		mkdir -p ${JS_MIN}; \
+		mkdir -p ${JS_MIN}/assets; \
 		sed -e 's/@VERSION/'"v${VERSION}"'/' -e 's/@DATE/'"`date`"'/' <${JS_COPYRIGHT} >${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_FILES}; do \
 			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
@@ -34,7 +35,9 @@ uglify:
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_DIR}/assets/*.js; do \
-			( uglifyjs $$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
+			FILE=`basename $$FILE`; \
+			uglifyjs -o ${JS_MIN}/assets/$$FILE ${JS_DIR}/assets/$$FILE; \
+			( uglifyjs ${JS_DIR}/assets/$$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_LOADER_FILES}; do \
