@@ -10,6 +10,7 @@ JS_MIN = ./js/min
 JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
 JS_COPYRIGHT = ./js/copyright
 JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
+JS_LOADER_FILES = loader-maskedinput.js loader-placeholder.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
@@ -31,6 +32,15 @@ uglify:
 			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
 			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
 		done; \
+		echo >> ${JS_MIN_BOOTSTRAP}; \
+		for FILE in ${JS_DIR}/assets/*.js; do \
+			( uglifyjs $$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
+		done; \
+		echo >> ${JS_MIN_BOOTSTRAP}; \
+		for FILE in ${JS_LOADER_FILES}; do \
+			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
+			( uglifyjs -nc ${JS_DIR}/$$FILE; echo ) >> ${JS_MIN_BOOTSTRAP}; \
+		done; \
 	else \
 		echo "You must have the UGLIFYJS minifier installed in order to minify Bootstrap's js."; \
 		echo "You can install it by running: npm install uglify-js -g"; \
@@ -45,4 +55,5 @@ watch:
 		echo "You can install it by running: gem install watchr"; \
 	fi
 
-.PHONY: build watch
+.PHONY: build jquery watch
+
