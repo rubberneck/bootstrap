@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Wed Dec 14 02:23:03 CET 2011
+ * Date: Mon Dec 19 23:16:04 CET 2011
  */
 html, body {
   margin: 0;
@@ -1252,6 +1252,18 @@ tr[data-href] > td {
 }
 tr[data-href] > td.nohref {
   cursor: normal;
+}
+.table-actions {
+  zoom: 1;
+}
+.table-actions:before, .table-actions:after {
+  display: table;
+  *display: inline;
+  content: "";
+  zoom: 1;
+}
+.table-actions:after {
+  clear: both;
 }
 /*
 // ----------------
