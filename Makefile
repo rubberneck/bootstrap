@@ -10,7 +10,7 @@ JS_MIN = ./js/min
 JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
 JS_COPYRIGHT = ./js/copyright
 JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
-JS_LOADER_FILES = loader-maskedinput.js loader-placeholder.js
+JS_LOADER_FILES = loader-maskedinput.js loader-placeholder.js loader-ckeditor.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
