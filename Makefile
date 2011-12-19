@@ -9,8 +9,8 @@ JS_DIR = ./js
 JS_MIN = ./js/min
 JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
 JS_COPYRIGHT = ./js/copyright
-JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js bootstrap-linkrow.js
-JS_LOADER_FILES = loader-ckeditor.js loader-maskedinput.js loader-placeholder.js
+JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
+JS_LOADER_FILES = loader-maskedinput.js loader-placeholder.js loader-ckeditor.js
 
 build:
 	@@if test ! -z ${LESS_COMPESSOR}; then \
@@ -27,6 +27,7 @@ build:
 uglify:
 	@@if test ! -z ${UGLIFY_JS}; then \
 		mkdir -p ${JS_MIN}; \
+		mkdir -p ${JS_MIN}/assets; \
 		sed -e 's/@VERSION/'"v${VERSION}"'/' -e 's/@DATE/'"`date`"'/' <${JS_COPYRIGHT} >${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_FILES}; do \
 			uglifyjs -o ${JS_MIN}/$$FILE ${JS_DIR}/$$FILE; \
@@ -34,7 +35,9 @@ uglify:
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_DIR}/assets/*.js; do \
-			( uglifyjs $$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
+			FILE=`basename $$FILE`; \
+			uglifyjs -o ${JS_MIN}/assets/$$FILE ${JS_DIR}/assets/$$FILE; \
+			( uglifyjs ${JS_DIR}/assets/$$FILE; echo; ) >> ${JS_MIN_BOOTSTRAP}; \
 		done; \
 		echo >> ${JS_MIN_BOOTSTRAP}; \
 		for FILE in ${JS_LOADER_FILES}; do \
