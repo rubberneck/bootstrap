@@ -95,6 +95,12 @@ input[type=file] {
   -ms-box-sizing: content-box;  
 }
 
+// Chrome on Linux and Mobile Safari need background-color
+select {
+  background-color: @white;
+  vertical-align: middle;
+}
+
 // Make multiple select elements height not fixed
 select[multiple] {
   height: inherit;
