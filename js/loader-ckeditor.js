@@ -1,14 +1,11 @@
-if (CKEDITOR != undefined) {
-    var CKEDITOR_TOOLBAR = [
-        { name: 'basicstyles', items : [ 'Format','-','Bold','Italic','Underline','Strike','-','RemoveFormat' ] },
-        { name: 'list',        items : [ 'NumberedList','BulletedList','-','Table','HorizontalRule' ] },
-        { name: 'paragraph',   items : [ 'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
-        { name: 'insert',      items : [ 'Link','Unlink','-','Image','SpecialChar' ] },
-    ];
-
-    $(function () {
+$(function () {
+    if (CKEDITOR != undefined) {
         $('textarea.editor').each(function() {
-            $(this).ckeditor( { toolbar : CKEDITOR_TOOLBAR } );
-        })
-    });
-}
+            var options = {};
+            if ($(this).attr('height')) options.height = $(this).attr('height');
+            if ($(this).attr('data-editor-toolbar')) options.toolbar = $(this).attr('data-editor-toolbar');
+            
+            $(this).ckeditor(options);
+        });
+    }
+});
