@@ -43,3 +43,4 @@ $(function(){$.support.transition=function(){var a=document.body||document.docum
 
 $(function(){$("input[data-mask]").each(function(){$(this).mask($(this).attr("data-mask"))})});
 $(function(){$("input[placeholder], textarea[placeholder]").placeholder()});
+$(function(){CKEDITOR!=undefined&&$("textarea.editor").each(function(){var a={};$(this).attr("height")&&(a.height=$(this).attr("height")),$(this).attr("data-editor-toolbar")&&(a.toolbar=$(this).attr("data-editor-toolbar")),$(this).ckeditor(a)})});
