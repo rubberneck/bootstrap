@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Mon Dec 19 23:16:04 CET 2011
+ * Date: Fri Jan  6 00:52:52 CET 2012
  */
 html, body {
   margin: 0;
@@ -595,11 +595,16 @@ input[type=button], input[type=reset], input[type=submit] {
   height: auto;
 }
 select, input[type=file] {
-  height: 27px;
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
 
-  line-height: 27px;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+}
+select {
+  background-color: #ffffff;
+  vertical-align: middle;
 }
 select[multiple] {
   height: inherit;
@@ -906,9 +911,8 @@ textarea[readonly] {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.uneditable-input[disabled], .uneditable-textarea[disabled] {
-  background-color: #f5f5f5;
-  border-color: #ddd;
+:-moz-placeholder {
+  color: #bfbfbf;
 }
 .uneditable-textarea {
   height: 54px;
