@@ -1,9 +1,12 @@
 $(function () {
     if (CKEDITOR != undefined) {
         $('textarea.editor').each(function() {
-            var options = {};
-            if ($(this).attr('height')) options.height = $(this).attr('height');
-            if ($(this).attr('data-editor-toolbar')) options.toolbar = $(this).attr('data-editor-toolbar');
+            var options = { height : $(this).innerHeight() - 75, forcePasteAsPlainText : true };
+            
+            var attrs = this.attributes;
+            for(var i=0; i<attrs.length; i++) {
+                if (attrs[i].nodeName.match(/^data-editor-(.*)$/)) options[RegExp.$1] = attrs[i].nodeValue;
+            }
             
             $(this).ckeditor(options);
         });
