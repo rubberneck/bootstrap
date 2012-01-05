@@ -906,8 +906,9 @@ textarea[readonly] {
   overflow-y: auto;
   overflow-x: hidden;
 }
-:-moz-placeholder {
-  color: #bfbfbf;
+.uneditable-input[disabled], .uneditable-textarea[disabled] {
+  background-color: #f5f5f5;
+  border-color: #ddd;
 }
 .uneditable-textarea {
   height: 54px;
