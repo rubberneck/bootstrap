@@ -47,4 +47,4 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 $(function(){$("input[data-mask]").each(function(){$(this).mask($(this).attr("data-mask"))})});
 $(function(){$("input[placeholder], textarea[placeholder]").placeholder()});
-$(function(){CKEDITOR!=undefined&&$("textarea.editor").each(function(){var a={height:$(this).innerHeight()-75,forcePasteAsPlainText:!0},b=this.attributes;for(var c=0;c<b.length;c++)b[c].nodeName.match(/^data-editor-(.*)$/)&&(a[RegExp.$1]=b[c].nodeValue);$(this).ckeditor(a)})});
+$(function(){CKEDITOR!=undefined&&$("textarea.editor").each(function(){var a={height:$(this).innerHeight()-75,forcePasteAsPlainText:!0},b=$("meta[http-equiv=Content-Language]").attr("Content");b&&(a.language=b);var c=this.attributes;for(var d=0;d<c.length;d++)c[d].nodeName.match(/^data-editor-(.*)$/)&&(a[RegExp.$1]=c[d].nodeValue);$(this).ckeditor(a)})});
