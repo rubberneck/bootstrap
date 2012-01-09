@@ -1,4 +1,4 @@
-VERSION=2.0.0-jasny1
+VERSION=jasny-2.0.0
 BOOTSTRAP = ./bootstrap.css
 BOOTSTRAP_MIN = ./bootstrap.min.css
 BOOTSTRAP_LESS = ./lib/bootstrap.less
@@ -9,7 +9,7 @@ JS_DIR = ./js
 JS_MIN = ./js/min
 JS_MIN_BOOTSTRAP = ./js/min/bootstrap.js
 JS_COPYRIGHT = ./js/copyright
-JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js
+JS_FILES = bootstrap-transitions.js bootstrap-alert.js bootstrap-modal.js bootstrap-dropdown.js bootstrap-scrollspy.js bootstrap-twipsy.js bootstrap-tab.js bootstrap-popover.js bootstrap-button.js bootstrap-collapse.js bootstrap-carousel.js bootstrap-alert.js bootstrap-linkrow.js
 JS_LOADER_FILES = loader-maskedinput.js loader-placeholder.js loader-ckeditor.js
 
 build:
