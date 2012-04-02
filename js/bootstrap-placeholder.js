@@ -1,10 +1,10 @@
 /* ==========================================================
- * bootstrap-carousel.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#carousel
+ * bootstrap-placeholder.js v2.0.0
+ * http://jasny.github.com/bootstrap/javascript.html#placeholder
  * 
  * Based on work by Daniel Stocks (http://webcloud.se)
  * ==========================================================
- * Copyright 2012 Twitter, Inc.
+ * Copyright 2012 Jasny BV.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
