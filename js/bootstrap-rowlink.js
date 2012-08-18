@@ -18,21 +18,25 @@
  * ============================================================ */
 
 !function ($) {
-  
+
   "use strict"; // jshint ;_;
 
   var Rowlink = function (element, options) {
     options = $.extend({}, $.fn.rowlink.defaults, options)
     var tr = element.nodeName == 'tr' ? $(element) : $(element).find('tr:has(td)')
-    
+
     tr.each(function() {
       var link = $(this).find(options.target).first()
       if (!link.length) return
-      
+
       var href = link.attr('href')
 
       $(this).find('td').not('.nolink').click(function() {
-        window.location = href;
+        if(options.pagejs) {
+          page(href);
+        } else {
+          window.location = href;
+        }
       })
 
       $(this).addClass('rowlink')
@@ -40,7 +44,7 @@
     })
   }
 
-  
+
  /* ROWLINK PLUGIN DEFINITION
   * =========================== */
 
@@ -54,6 +58,7 @@
 
   $.fn.rowlink.defaults = {
     target: "a"
+    , pagejs: false
   }
 
   $.fn.rowlink.Constructor = Rowlink
@@ -67,5 +72,5 @@
       $(this).rowlink($(this).data())
     })
   })
-  
+
 }(window.jQuery)
